@@ -59,3 +59,23 @@ GROUP BY sex;
 SELECT sum (total_sales), emp_id
 FROM works_with
 GROUP BY emp_id;
+
+--find names of all employees who have sold over $30,000 to a single client
+SELECT first_name, last_name
+FROM employee
+WHERE employee.emp_id IN 
+(SELECT emp_id
+FROM works_with
+WHERE total_sales > 30000
+);
+
+
+--find all clients who are handled by the branch that Michael Scoot manages, assume you know Michael's ID
+SELECT client_name
+FROM client_name
+WHERE branch_id IN 
+(
+SELECT branch_id
+FROM branch
+WHERE mgr_id = 102
+);
