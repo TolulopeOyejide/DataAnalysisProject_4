@@ -79,3 +79,27 @@ SELECT branch_id
 FROM branch
 WHERE mgr_id = 102
 );
+
+--find a list of employee and branch names
+SELECT first_name
+FROM employee
+UNION
+SELECT branch_name
+FROM branch;
+
+
+--find a list of all clients and branch suppliers' names
+SELECT client_name
+FROM client
+UNION 
+SELECT supplier_name
+FROM branch_supplier;
+
+--Find the number of employees
+SELECT COUNT(emp_id)
+FROM employee;
+
+--Find the number of female employees born after 1970
+SELECT COUNT(emp_id)
+FROM employee
+WHERE sex = 'F' AND birth_date > '1971-01-01';
